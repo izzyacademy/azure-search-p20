@@ -1,6 +1,6 @@
 # Azure Search P20 Artifacts
 
-You can use the [post man scripts here](../JSON.json) to create an index, add documents to the index and run queries against the index.
+You can use the [post man scripts here](../PostMan-Collection.json) to create an index, add documents to the index and run queries against the index.
 
 ## Variables to Define
 
