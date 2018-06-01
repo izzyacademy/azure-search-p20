@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "e7371e07-1406-44e0-984f-e8177ba5a29c",
+		"name": "AzureSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateIndexHotels",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"hotels\",  \r\n    \"fields\": [\r\n        {\"name\": \"hotelId\", \"type\": \"Edm.String\", \"key\": true, \"searchable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"baseRate\", \"type\": \"Edm.Double\"},\r\n        {\"name\": \"description\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"description_fr\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false, \"analyzer\": \"fr.lucene\"},\r\n        {\"name\": \"hotelName\", \"type\": \"Edm.String\", \"facetable\": false},\r\n        {\"name\": \"category\", \"type\": \"Edm.String\"},\r\n        {\"name\": \"tags\", \"type\": \"Collection(Edm.String)\"},\r\n        {\"name\": \"parkingIncluded\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"smokingAllowed\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"lastRenovationDate\", \"type\": \"Edm.DateTimeOffset\"},\r\n        {\"name\": \"rating\", \"type\": \"Edm.Int32\"},\r\n        {\"name\": \"location\", \"type\": \"Edm.GeographyPoint\"}\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a new Index named Hotel"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIndexEvents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"events\",  \r\n    \"fields\": [\r\n        {\"name\": \"eventId\", \"type\": \"Edm.String\", \"key\": true, \"searchable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"fee\", \"type\": \"Edm.Double\"},\r\n        {\"name\": \"description\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"eventName\", \"type\": \"Edm.String\", \"facetable\": false},\r\n        {\"name\": \"category\", \"type\": \"Edm.String\"},\r\n        {\"name\": \"tags\", \"type\": \"Collection(Edm.String)\"},\r\n        {\"name\": \"parkingIncluded\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"isActive\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"registrationDate\", \"type\": \"Edm.DateTimeOffset\"},\r\n        {\"name\": \"rating\", \"type\": \"Edm.Int32\"},\r\n        {\"name\": \"location\", \"type\": \"Edm.GeographyPoint\"}\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a new Index called Events"
+			},
+			"response": []
+		},
+		{
+			"name": "ListIndices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"hotels\",  \r\n    \"fields\": [\r\n        {\"name\": \"hotelId\", \"type\": \"Edm.String\", \"key\": true, \"searchable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"baseRate\", \"type\": \"Edm.Double\"},\r\n        {\"name\": \"description\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"description_fr\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false, \"analyzer\": \"fr.lucene\"},\r\n        {\"name\": \"hotelName\", \"type\": \"Edm.String\", \"facetable\": false},\r\n        {\"name\": \"category\", \"type\": \"Edm.String\"},\r\n        {\"name\": \"tags\", \"type\": \"Collection(Edm.String)\"},\r\n        {\"name\": \"parkingIncluded\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"smokingAllowed\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"lastRenovationDate\", \"type\": \"Edm.DateTimeOffset\"},\r\n        {\"name\": \"rating\", \"type\": \"Edm.Int32\"},\r\n        {\"name\": \"location\", \"type\": \"Edm.GeographyPoint\"}\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes?api-version={{apiVersion}}&$select=name ",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						},
+						{
+							"key": "$select",
+							"value": "name "
+						}
+					]
+				},
+				"description": "Retrieves all available indicies"
+			},
+			"response": []
+		},
+		{
+			"name": "ListIndicesDetails",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"hotels\",  \r\n    \"fields\": [\r\n        {\"name\": \"hotelId\", \"type\": \"Edm.String\", \"key\": true, \"searchable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"baseRate\", \"type\": \"Edm.Double\"},\r\n        {\"name\": \"description\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"description_fr\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false, \"analyzer\": \"fr.lucene\"},\r\n        {\"name\": \"hotelName\", \"type\": \"Edm.String\", \"facetable\": false},\r\n        {\"name\": \"category\", \"type\": \"Edm.String\"},\r\n        {\"name\": \"tags\", \"type\": \"Collection(Edm.String)\"},\r\n        {\"name\": \"parkingIncluded\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"smokingAllowed\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"lastRenovationDate\", \"type\": \"Edm.DateTimeOffset\"},\r\n        {\"name\": \"rating\", \"type\": \"Edm.Int32\"},\r\n        {\"name\": \"location\", \"type\": \"Edm.GeographyPoint\"}\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Retrieves details for multiple indicies"
+			},
+			"response": []
+		},
+		{
+			"name": "AddDocumentsToHotelIndex",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"value\": [\r\n        {\r\n            \"@search.action\": \"upload\",\r\n            \"hotelId\": \"1\",\r\n            \"baseRate\": 199.0,\r\n            \"description\": \"Best hotel in town\",\r\n            \"description_fr\": \"Meilleur hôtel en ville\",\r\n            \"hotelName\": \"Fancy Stay\",\r\n            \"category\": \"Luxury\",\r\n            \"tags\": [\"pool\", \"view\", \"wifi\", \"concierge\"],\r\n            \"parkingIncluded\": false,\r\n            \"smokingAllowed\": false,\r\n            \"lastRenovationDate\": \"2010-06-27T00:00:00Z\",\r\n            \"rating\": 5,\r\n            \"location\": { \"type\": \"Point\", \"coordinates\": [-122.131577, 47.678581] }\r\n        },\r\n        {\r\n            \"@search.action\": \"upload\",\r\n            \"hotelId\": \"2\",\r\n            \"baseRate\": 79.99,\r\n            \"description\": \"Cheapest hotel in town\",\r\n            \"description_fr\": \"Hôtel le moins cher en ville\",\r\n            \"hotelName\": \"Roach Motel\",\r\n            \"category\": \"Budget\",\r\n            \"tags\": [\"motel\", \"budget\"],\r\n            \"parkingIncluded\": true,\r\n            \"smokingAllowed\": true,\r\n            \"lastRenovationDate\": \"1982-04-28T00:00:00Z\",\r\n            \"rating\": 1,\r\n            \"location\": { \"type\": \"Point\", \"coordinates\": [-122.131577, 49.678581] }\r\n        },\r\n        {\r\n            \"@search.action\": \"mergeOrUpload\",\r\n            \"hotelId\": \"3\",\r\n            \"baseRate\": 129.99,\r\n            \"description\": \"Close to town hall and the river\"\r\n        },\r\n        {\r\n            \"@search.action\": \"delete\",\r\n            \"hotelId\": \"6\"\r\n        }\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/{{indexName}}/docs/index?api-version={{apiVersion}} ",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"{{indexName}}",
+						"docs",
+						"index"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}} "
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "QueryIndex-0",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{QueryApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"hotels\",  \r\n    \"fields\": [\r\n        {\"name\": \"hotelId\", \"type\": \"Edm.String\", \"key\": true, \"searchable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"baseRate\", \"type\": \"Edm.Double\"},\r\n        {\"name\": \"description\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"description_fr\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false, \"analyzer\": \"fr.lucene\"},\r\n        {\"name\": \"hotelName\", \"type\": \"Edm.String\", \"facetable\": false},\r\n        {\"name\": \"category\", \"type\": \"Edm.String\"},\r\n        {\"name\": \"tags\", \"type\": \"Collection(Edm.String)\"},\r\n        {\"name\": \"parkingIncluded\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"smokingAllowed\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"lastRenovationDate\", \"type\": \"Edm.DateTimeOffset\"},\r\n        {\"name\": \"rating\", \"type\": \"Edm.Int32\"},\r\n        {\"name\": \"location\", \"type\": \"Edm.GeographyPoint\"}\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/{{indexName}}/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description,baseRate&api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"{{indexName}}",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "*"
+						},
+						{
+							"key": "$filter",
+							"value": "baseRate lt 150"
+						},
+						{
+							"key": "$select",
+							"value": "hotelId,description,baseRate"
+						},
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Performs a search query using query parameters. However this has limitations as to the number of characters in the search request."
+			},
+			"response": []
+		},
+		{
+			"name": "QueryIndex-1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{QueryApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"search\": \"close\",\r\n    \"select\": \"*\",\r\n    \"filter\": \"baseRate gt 2.50\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/{{indexName}}/docs/search?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"{{indexName}}",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Performs a search query using a POST request. Use this when you have more complex queries for simplicity."
+			},
+			"response": []
+		}
+	]
+}
