@@ -20,3 +20,28 @@ Variable | Example | Description
 *serviceName* | **isp20demo** | The name of your Azure Search service
 *apiVersion* | **2017-11-11** | The API version you are using
 *indexName* | **hotels** | The name of the Azure Search index.
+
+## Relevant Links
+
+### Downloading and Installing Postman
+https://www.getpostman.com/docs/v6/postman/launching_postman/installation_and_updates
+
+### Setting up Variables in Postman
+https://www.getpostman.com/docs/v6/postman/environments_and_globals/variables
+
+### Creating and Index
+https://docs.microsoft.com/en-us/rest/api/searchservice/index-operations
+
+### Indexing Via REST API
+https://docs.microsoft.com/en-us/azure/search/search-import-data-rest-api
+
+### Supported Data Types
+https://docs.microsoft.com/en-us/rest/api/searchservice/supported-data-types
+
+### Querying the Search Index
+https://docs.microsoft.com/en-us/rest/api/searchservice/lucene-query-syntax-in-azure-search
+
+https://docs.microsoft.com/en-us/azure/search/search-query-rest-api
+
+### Pricing Tiers
+https://docs.microsoft.com/en-us/azure/search/search-sku-tier
