@@ -1,0 +1,1465 @@
+{
+	"info": {
+		"_postman_id": "79f13a4e-1b36-4e23-ab45-3d117392ea77",
+		"name": "P20CognitiveSearch",
+		"description": "A collection of REST API calls for the P20 Cognitive Search demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CreateDataSource-TextDocuments",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"textdocuments\",\n  \"description\": \"Data Source containing some plain text files that will be analyzed\",\n  \"type\": \"azureblob\",\n  \"credentials\": {\n    \"connectionString\": \"DefaultEndpointsProtocol=https;AccountName=cogsearchdemo;AccountKey=rC8pMD4HGkv4hR6DRbMJiz1HG4fQq16Nu5f0aI1xUiruVB0AkmuzyvxxC3XvVanItXLPJB3cxVDOZIOEATMVIQ==;EndpointSuffix=core.windows.net\"\n  },\n  \"container\": {\n    \"name\": \"p20samples\",\n    \"query\": \"textdocuments\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/datasources/textdocuments?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"datasources",
+						"textdocuments"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateDataSource-Celebrities",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"celebreties\",\n  \"description\": \"Data Source containing a blob container images for celebreties, landmarks and important places\",\n  \"type\": \"azureblob\",\n  \"credentials\": {\n    \"connectionString\": \"DefaultEndpointsProtocol=https;AccountName=cogsearchdemo;AccountKey=rC8pMD4HGkv4hR6DRbMJiz1HG4fQq16Nu5f0aI1xUiruVB0AkmuzyvxxC3XvVanItXLPJB3cxVDOZIOEATMVIQ==;EndpointSuffix=core.windows.net\"\n  },\n  \"container\": {\n    \"name\": \"p20samples\",\n    \"query\": \"celebreties\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/datasources/celebreties?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"datasources",
+						"celebreties"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateDataSource-HotelReviews",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"hotelreviews\",\n  \"description\": \"Data Source containing some plain text files for hotel reviews. Intended for sentiment analysis\",\n  \"type\": \"azureblob\",\n  \"credentials\": {\n    \"connectionString\": \"DefaultEndpointsProtocol=https;AccountName=cogsearchdemo;AccountKey=rC8pMD4HGkv4hR6DRbMJiz1HG4fQq16Nu5f0aI1xUiruVB0AkmuzyvxxC3XvVanItXLPJB3cxVDOZIOEATMVIQ==;EndpointSuffix=core.windows.net\"\n  },\n  \"container\": {\n    \"name\": \"p20samples\",\n    \"query\": \"hotelreviews\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/datasources/hotelreviews?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"datasources",
+						"hotelreviews"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateDataSource-ScannedDocs",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"scandocuments\",\n  \"description\": \"Data Source containing some scanned documents/images for OCR tasks\",\n  \"type\": \"azureblob\",\n  \"credentials\": {\n    \"connectionString\": \"DefaultEndpointsProtocol=https;AccountName=cogsearchdemo;AccountKey=rC8pMD4HGkv4hR6DRbMJiz1HG4fQq16Nu5f0aI1xUiruVB0AkmuzyvxxC3XvVanItXLPJB3cxVDOZIOEATMVIQ==;EndpointSuffix=core.windows.net\"\n  },\n  \"container\": {\n    \"name\": \"p20samples\",\n    \"query\": \"scandocuments\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/datasources/scandocuments?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"datasources",
+						"scandocuments"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "ListDataSources",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"textdocuments\",\r\n    \"description\": \"Data Source containing some plain text files that will be analyzed\",\r\n    \"type\": \"azureblob\",\r\n\t\"credentials\": {\r\n        \"connectionString\": \"DefaultEndpointsProtocol=https;AccountName=cogsearchdemo;AccountKey=rC8pMD4HGkv4hR6DRbMJiz1HG4fQq16Nu5f0aI1xUiruVB0AkmuzyvxxC3XvVanItXLPJB3cxVDOZIOEATMVIQ==;EndpointSuffix=core.windows.net\"\r\n    },\r\n    \"container\": {\r\n        \"name\": \"p20samples\",\r\n        \"query\": \"textdocuments\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/datasources?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"datasources"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateSkillset-AnalyzeText",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"analyzetext\",\n  \"description\": \"Skillset used to analyze text for entity extraction (people, places, organizations), languages and key phrases\",\n  \"skills\": [\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.NamedEntityRecognitionSkill\",\n      \"description\": \"Used for extracting named entities from the text\",\n      \"context\": \"/document\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        },\n        {\n          \"name\": \"languageCode\",\n          \"source\": \"/document/language\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"persons\",\n          \"targetName\": \"people\"\n        },\n        {\n          \"name\": \"organizations\",\n          \"targetName\": \"organizations\"\n        },\n        {\n          \"name\": \"locations\",\n          \"targetName\": \"locations\"\n        }\n      ],\n      \"categories\": [\n        \"Location\",\n        \"Organization\",\n        \"Person\"\n      ],\n      \"defaultLanguageCode\": \"en\",\n      \"minimumPrecision\": 0.5\n    },\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.KeyPhraseExtractionSkill\",\n      \"description\": \"Used for extracting key phrases from the text\",\n      \"context\": \"/document\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        },\n        {\n          \"name\": \"languageCode\",\n          \"source\": \"/document/language\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"keyPhrases\",\n          \"targetName\": \"keyphrases\"\n        }\n      ],\n      \"defaultLanguageCode\": \"en\",\n      \"maxKeyPhraseCount\": null\n    },\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.LanguageDetectionSkill\",\n      \"description\": \"Detects the language of the document\",\n      \"context\": \"/document\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"languageCode\",\n          \"targetName\": \"language\"\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/skillsets/analyzetext?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"skillsets",
+						"analyzetext"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateSkillset-AnalyzeCelebreties",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"name\": \"analyzecelebreties\",\r\n            \"description\": \"Analyzes Images of Landmarks, Celebreties and Important Places\",\r\n            \"skills\": [\r\n                {\r\n                    \"@odata.type\": \"#Microsoft.Skills.Vision.OcrSkill\",\r\n                    \"description\": \"Optical Character Recognition to convert images of text into raw text\",\r\n                    \"context\": \"/document/normalized_images/*\",\r\n                    \"inputs\": [\r\n                        {\r\n                            \"name\": \"image\",\r\n                            \"source\": \"/document/normalized_images/*\"\r\n                        }\r\n                    ],\r\n                    \"outputs\": [\r\n                        {\r\n                            \"name\": \"text\",\r\n                            \"targetName\": \"text\"\r\n                        },\r\n                        {\r\n                            \"name\": \"layoutText\",\r\n                            \"targetName\": \"layoutText\"\r\n                        }\r\n                    ],\r\n                    \"textExtractionAlgorithm\": \"printed\",\r\n                    \"defaultLanguageCode\": \"en\",\r\n                    \"detectOrientation\": true\r\n                },\r\n                {\r\n                    \"@odata.type\": \"#Microsoft.Skills.Vision.ImageAnalysisSkill\",\r\n                    \"description\": \"skill to recognize images of important people and places and generate text\",\r\n                    \"context\": \"/document/normalized_images/*\",\r\n                    \"inputs\": [\r\n                        {\r\n                            \"name\": \"image\",\r\n                            \"source\": \"/document/normalized_images/*\"\r\n                        }\r\n                    ],\r\n                    \"outputs\": [\r\n                        {\r\n                            \"name\": \"tags\",\r\n                            \"targetName\": \"imageTags\"\r\n                        },\r\n                        {\r\n                            \"name\": \"description\",\r\n                            \"targetName\": \"imageCaption\"\r\n                        },\r\n                        {\r\n                            \"name\": \"categories\",\r\n                            \"targetName\": \"categories\"\r\n                        }\r\n                    ],\r\n                    \"defaultLanguageCode\": \"en\",\r\n                    \"visualFeatures\": [\r\n                        \"Tags\",\r\n                        \"Description\"\r\n                    ],\r\n                    \"details\": [\r\n                        \"Celebrities\"\r\n                    ]\r\n                }\r\n            ]\r\n        }"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/skillsets/analyzecelebreties?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"skillsets",
+						"analyzecelebreties"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateSkillset-AnalyzeHotelReviews",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"hotelreviews\",\n  \"description\": \"Skillset used to analyze text for entity extraction (people, places, organizations), languages and key phrases as well as sentiment analysis\",\n  \"skills\": [\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.NamedEntityRecognitionSkill\",\n      \"description\": \"Used for extracting named entities from the text\",\n      \"context\": \"/document\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        },\n        {\n          \"name\": \"languageCode\",\n          \"source\": \"/document/language\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"persons\",\n          \"targetName\": \"people\"\n        },\n        {\n          \"name\": \"organizations\",\n          \"targetName\": \"organizations\"\n        },\n        {\n          \"name\": \"locations\",\n          \"targetName\": \"locations\"\n        }\n      ],\n      \"categories\": [\n        \"Location\",\n        \"Organization\",\n        \"Person\"\n      ],\n      \"defaultLanguageCode\": \"en\",\n      \"minimumPrecision\": 0.5\n    },\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.KeyPhraseExtractionSkill\",\n      \"description\": \"Used for extracting key phrases from the text\",\n      \"context\": \"/document\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        },\n        {\n          \"name\": \"languageCode\",\n          \"source\": \"/document/language\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"keyPhrases\",\n          \"targetName\": \"keyphrases\"\n        }\n      ],\n      \"defaultLanguageCode\": \"en\",\n      \"maxKeyPhraseCount\": null\n    },\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.LanguageDetectionSkill\",\n      \"description\": \"Detects the language of the document\",\n      \"context\": \"/document\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"languageCode\",\n          \"targetName\": \"language\"\n        }\n      ]\n    },\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.SentimentSkill\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        },\n        {\n          \"name\": \"languageCode\",\n          \"source\": \"/document/languagecode\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"score\",\n          \"targetName\": \"mySentiment\"\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/skillsets/hotelreviews?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"skillsets",
+						"hotelreviews"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateSkillset-AnalyzeOCR",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"ocranalysis\",\n  \"description\": \"Skillset used to analyze images of docs and extract text from scanned documents\",\n  \"skills\": [\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Vision.OcrSkill\",\n      \"description\": \"Processes the character's images into text\",\n      \"context\": \"/document/normalized_images/*\",\n      \"inputs\": [\n        {\n          \"name\": \"image\",\n          \"source\": \"/document/normalized_images/*\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"text\",\n          \"targetName\": \"text\"\n        },\n        {\n          \"name\": \"layoutText\",\n          \"targetName\": \"layoutText\"\n        }\n      ],\n      \"textExtractionAlgorithm\": \"printed\",\n      \"defaultLanguageCode\": \"en\",\n      \"detectOrientation\": true\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/skillsets/ocranalysis?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"skillsets",
+						"ocranalysis"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "ListSkillsets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"analyzetext\",\n  \"description\": \"Skillset used to analyze text for entity extraction (people, places, organizations), languages and key phrases\",\n  \"skills\": [\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.NamedEntityRecognitionSkill\",\n      \"description\": \"Used for extracting named entities from the text\",\n      \"context\": \"/document\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        },\n        {\n          \"name\": \"languageCode\",\n          \"source\": \"/document/language\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"persons\",\n          \"targetName\": \"people\"\n        },\n        {\n          \"name\": \"organizations\",\n          \"targetName\": \"organizations\"\n        },\n        {\n          \"name\": \"locations\",\n          \"targetName\": \"locations\"\n        }\n      ],\n      \"categories\": [\n        \"Location\",\n        \"Organization\",\n        \"Person\"\n      ],\n      \"defaultLanguageCode\": \"en\",\n      \"minimumPrecision\": 0.5\n    },\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.KeyPhraseExtractionSkill\",\n      \"description\": \"Used for extracting key phrases from the text\",\n      \"context\": \"/document\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        },\n        {\n          \"name\": \"languageCode\",\n          \"source\": \"/document/language\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"keyPhrases\",\n          \"targetName\": \"keyphrases\"\n        }\n      ],\n      \"defaultLanguageCode\": \"en\",\n      \"maxKeyPhraseCount\": null\n    },\n    {\n      \"@odata.type\": \"#Microsoft.Skills.Text.LanguageDetectionSkill\",\n      \"description\": \"Detects the language of the document\",\n      \"context\": \"/document\",\n      \"inputs\": [\n        {\n          \"name\": \"text\",\n          \"source\": \"/document/content\"\n        }\n      ],\n      \"outputs\": [\n        {\n          \"name\": \"languageCode\",\n          \"targetName\": \"language\"\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/skillsets?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"skillsets"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a data source"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIndex-TextDocuments",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"textdocuments\",\n  \"fields\": [\n    {\n      \"name\": \"content\",\n      \"type\": \"Edm.String\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": \"standard.lucene\",\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_content_type\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_size\",\n      \"type\": \"Edm.Int64\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_last_modified\",\n      \"type\": \"Edm.DateTimeOffset\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_content_md5\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_name\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_path\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": true,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_content_encoding\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_content_type\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_language\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"people\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"organizations\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"locations\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"keyphrases\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"language\",\n      \"type\": \"Edm.String\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/textdocuments?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"textdocuments"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a new Index named Hotel"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIndex-Celebreties",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"celebreties\",\n  \"fields\": [\n    {\n      \"name\": \"content\",\n      \"type\": \"Edm.String\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": \"standard.lucene\",\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_content_type\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_size\",\n      \"type\": \"Edm.Int64\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_last_modified\",\n      \"type\": \"Edm.DateTimeOffset\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_content_md5\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_name\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_path\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": true,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_content_type\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": false,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"merged_content\",\n      \"type\": \"Edm.String\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"text\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"layoutText\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"imageTags\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"imageCaption\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"celebreties\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"celebrities\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/celebreties?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"celebreties"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a new Index named Hotel"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIndex-HotelReviews",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"hotelreviews\",\n  \"fields\": [\n    {\n      \"name\": \"content\",\n      \"type\": \"Edm.String\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": \"standard.lucene\",\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_content_type\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_size\",\n      \"type\": \"Edm.Int64\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_last_modified\",\n      \"type\": \"Edm.DateTimeOffset\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_content_md5\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_name\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_path\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": true,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_content_encoding\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_content_type\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_language\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"people\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"organizations\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"locations\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"keyphrases\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"language\",\n      \"type\": \"Edm.String\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"mySentiment\",\n      \"type\": \"Edm.Double\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": true,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/hotelreviews?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"hotelreviews"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a new Index named Hotel"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIndex-ScannedDocs",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"scandocuments\",\n  \"fields\": [\n    {\n      \"name\": \"content\",\n      \"type\": \"Edm.String\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": \"standard.lucene\",\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_content_type\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_size\",\n      \"type\": \"Edm.Int64\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_last_modified\",\n      \"type\": \"Edm.DateTimeOffset\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_content_md5\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_name\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_storage_path\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": true,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"metadata_content_type\",\n      \"type\": \"Edm.String\",\n      \"searchable\": false,\n      \"filterable\": false,\n      \"retrievable\": false,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"merged_content\",\n      \"type\": \"Edm.String\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"text\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"layoutText\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"imageTags\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    },\n    {\n      \"name\": \"imageCaption\",\n      \"type\": \"Collection(Edm.String)\",\n      \"searchable\": true,\n      \"filterable\": false,\n      \"retrievable\": true,\n      \"sortable\": false,\n      \"facetable\": false,\n      \"key\": false,\n      \"indexAnalyzer\": null,\n      \"searchAnalyzer\": null,\n      \"analyzer\": null,\n      \"synonymMaps\": []\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/scandocuments?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"scandocuments"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Creates a new Index named Hotel"
+			},
+			"response": []
+		},
+		{
+			"name": "ListIndices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"hotels\",  \r\n    \"fields\": [\r\n        {\"name\": \"hotelId\", \"type\": \"Edm.String\", \"key\": true, \"searchable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"baseRate\", \"type\": \"Edm.Double\"},\r\n        {\"name\": \"description\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"description_fr\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false, \"analyzer\": \"fr.lucene\"},\r\n        {\"name\": \"hotelName\", \"type\": \"Edm.String\", \"facetable\": false},\r\n        {\"name\": \"category\", \"type\": \"Edm.String\"},\r\n        {\"name\": \"tags\", \"type\": \"Collection(Edm.String)\"},\r\n        {\"name\": \"parkingIncluded\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"smokingAllowed\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"lastRenovationDate\", \"type\": \"Edm.DateTimeOffset\"},\r\n        {\"name\": \"rating\", \"type\": \"Edm.Int32\"},\r\n        {\"name\": \"location\", \"type\": \"Edm.GeographyPoint\"}\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes?api-version={{apiVersion}}&$select=name ",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						},
+						{
+							"key": "$select",
+							"value": "name "
+						}
+					]
+				},
+				"description": "Retrieves all available indicies"
+			},
+			"response": []
+		},
+		{
+			"name": "ListIndicesDetails",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"hotels\",  \r\n    \"fields\": [\r\n        {\"name\": \"hotelId\", \"type\": \"Edm.String\", \"key\": true, \"searchable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"baseRate\", \"type\": \"Edm.Double\"},\r\n        {\"name\": \"description\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false},\r\n        {\"name\": \"description_fr\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false, \"analyzer\": \"fr.lucene\"},\r\n        {\"name\": \"hotelName\", \"type\": \"Edm.String\", \"facetable\": false},\r\n        {\"name\": \"category\", \"type\": \"Edm.String\"},\r\n        {\"name\": \"tags\", \"type\": \"Collection(Edm.String)\"},\r\n        {\"name\": \"parkingIncluded\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"smokingAllowed\", \"type\": \"Edm.Boolean\", \"sortable\": false},\r\n        {\"name\": \"lastRenovationDate\", \"type\": \"Edm.DateTimeOffset\"},\r\n        {\"name\": \"rating\", \"type\": \"Edm.Int32\"},\r\n        {\"name\": \"location\", \"type\": \"Edm.GeographyPoint\"}\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Retrieves details for multiple indicies"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIndexer-TextDocuments",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"textdocuments\",\n  \"description\": \"Indexer for Text Documents\",\n  \"dataSourceName\": \"textdocuments\",\n  \"skillsetName\": \"analyzetext\",\n  \"targetIndexName\": \"textdocuments\",\n  \"schedule\": null,\n  \"parameters\": {\n    \"batchSize\": null,\n    \"maxFailedItems\": 0,\n    \"maxFailedItemsPerBatch\": 0,\n    \"base64EncodeKeys\": false,\n    \"configuration\": {\n      \"dataToExtract\": \"contentAndMetadata\",\n      \"parsingMode\": \"text\"\n    }\n  },\n  \"fieldMappings\": [\n    {\n      \"sourceFieldName\": \"metadata_storage_path\",\n      \"targetFieldName\": \"metadata_storage_path\",\n      \"mappingFunction\": {\n        \"name\": \"base64Encode\",\n        \"parameters\": null\n      }\n    }\n  ],\n  \"outputFieldMappings\": [\n    {\n      \"sourceFieldName\": \"/document/people\",\n      \"targetFieldName\": \"people\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/organizations\",\n      \"targetFieldName\": \"organizations\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/locations\",\n      \"targetFieldName\": \"locations\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/keyphrases\",\n      \"targetFieldName\": \"keyphrases\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/language\",\n      \"targetFieldName\": \"language\",\n      \"mappingFunction\": null\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/textdocuments?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"textdocuments"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIndexer-Celebreties",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"celebreties\",\n  \"description\": \"Indexer for Celebrity and Landmark data extracted from the skillsets\",\n  \"dataSourceName\": \"celebreties\",\n  \"skillsetName\": \"analyzecelebreties\",\n  \"targetIndexName\": \"celebreties\",\n  \"schedule\": null,\n  \"parameters\": {\n    \"batchSize\": null,\n    \"maxFailedItems\": 0,\n    \"maxFailedItemsPerBatch\": 0,\n    \"base64EncodeKeys\": false,\n    \"configuration\": {\n      \"dataToExtract\": \"contentAndMetadata\",\n      \"imageAction\": \"generateNormalizedImages\"\n    }\n  },\n  \"fieldMappings\": [\n    {\n      \"sourceFieldName\": \"metadata_storage_path\",\n      \"targetFieldName\": \"metadata_storage_path\",\n      \"mappingFunction\": {\n        \"name\": \"base64Encode\",\n        \"parameters\": null\n      }\n    }\n  ],\n  \"outputFieldMappings\": [\n    {\n      \"sourceFieldName\": \"/document/merged_content\",\n      \"targetFieldName\": \"merged_content\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/text\",\n      \"targetFieldName\": \"text\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/layoutText\",\n      \"targetFieldName\": \"layoutText\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/imageTags/*/name\",\n      \"targetFieldName\": \"imageTags\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/imageCaption\",\n      \"targetFieldName\": \"imageCaption\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/categories/*/detail/celebrities/*/name\",\n      \"targetFieldName\": \"celebreties\",\n      \"mappingFunction\": null\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/celebreties?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"celebreties"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIndexer-HotelReviews",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"hotelreviews\",\n  \"description\": \"Indexer for Hotel Reviews and Sentiments\",\n  \"dataSourceName\": \"hotelreviews\",\n  \"skillsetName\": \"hotelreviews\",\n  \"targetIndexName\": \"hotelreviews\",\n  \"schedule\": null,\n  \"parameters\": {\n    \"batchSize\": null,\n    \"maxFailedItems\": 0,\n    \"maxFailedItemsPerBatch\": 0,\n    \"base64EncodeKeys\": false,\n    \"configuration\": {\n      \"dataToExtract\": \"contentAndMetadata\",\n      \"parsingMode\": \"text\"\n    }\n  },\n  \"fieldMappings\": [\n    {\n      \"sourceFieldName\": \"metadata_storage_path\",\n      \"targetFieldName\": \"metadata_storage_path\",\n      \"mappingFunction\": {\n        \"name\": \"base64Encode\",\n        \"parameters\": null\n      }\n    }\n  ],\n  \"outputFieldMappings\": [\n    {\n      \"sourceFieldName\": \"/document/people\",\n      \"targetFieldName\": \"people\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/organizations\",\n      \"targetFieldName\": \"organizations\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/locations\",\n      \"targetFieldName\": \"locations\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/keyphrases\",\n      \"targetFieldName\": \"keyphrases\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/language\",\n      \"targetFieldName\": \"language\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/mySentiment\",\n      \"targetFieldName\": \"mySentiment\",\n      \"mappingFunction\": null\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/hotelreviews?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"hotelreviews"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIndexer-OCR",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"scandocuments\",\n  \"description\": \"Indexer for Scanned Docs that are converted to text via OCR\",\n  \"dataSourceName\": \"scandocuments\",\n  \"skillsetName\": \"ocranalysis\",\n  \"targetIndexName\": \"scandocuments\",\n  \"schedule\": null,\n  \"parameters\": {\n    \"batchSize\": null,\n    \"maxFailedItems\": 0,\n    \"maxFailedItemsPerBatch\": 0,\n    \"base64EncodeKeys\": false,\n    \"configuration\": {\n      \"dataToExtract\": \"contentAndMetadata\",\n      \"imageAction\": \"generateNormalizedImages\"\n    }\n  },\n  \"fieldMappings\": [\n    {\n      \"sourceFieldName\": \"metadata_storage_path\",\n      \"targetFieldName\": \"metadata_storage_path\",\n      \"mappingFunction\": {\n        \"name\": \"base64Encode\",\n        \"parameters\": null\n      }\n    }\n  ],\n  \"outputFieldMappings\": [\n    {\n      \"sourceFieldName\": \"/document/merged_content\",\n      \"targetFieldName\": \"merged_content\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/text\",\n      \"targetFieldName\": \"text\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/layoutText\",\n      \"targetFieldName\": \"layoutText\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/imageTags/*/name\",\n      \"targetFieldName\": \"imageTags\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/imageCaption\",\n      \"targetFieldName\": \"imageCaption\",\n      \"mappingFunction\": null\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/scandocuments?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"scandocuments"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "ListIndexers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"celebreties\",\n  \"description\": \"Indexer for Celebrity and Landmark data extracted from the skillsets\",\n  \"dataSourceName\": \"celebreties\",\n  \"skillsetName\": \"analyzecelebreties\",\n  \"targetIndexName\": \"celebreties\",\n  \"schedule\": null,\n  \"parameters\": {\n    \"batchSize\": null,\n    \"maxFailedItems\": 0,\n    \"maxFailedItemsPerBatch\": 0,\n    \"base64EncodeKeys\": false,\n    \"configuration\": {\n      \"dataToExtract\": \"contentAndMetadata\",\n      \"imageAction\": \"generateNormalizedImages\"\n    }\n  },\n  \"fieldMappings\": [\n    {\n      \"sourceFieldName\": \"metadata_storage_path\",\n      \"targetFieldName\": \"metadata_storage_path\",\n      \"mappingFunction\": {\n        \"name\": \"base64Encode\",\n        \"parameters\": null\n      }\n    }\n  ],\n  \"outputFieldMappings\": [\n    {\n      \"sourceFieldName\": \"/document/merged_content\",\n      \"targetFieldName\": \"merged_content\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/text\",\n      \"targetFieldName\": \"text\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/layoutText\",\n      \"targetFieldName\": \"layoutText\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/imageTags/*/name\",\n      \"targetFieldName\": \"imageTags\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/imageCaption\",\n      \"targetFieldName\": \"imageCaption\",\n      \"mappingFunction\": null\n    },\n    {\n      \"sourceFieldName\": \"/document/normalized_images/*/categories/*/detail/celebrities/*/name\",\n      \"targetFieldName\": \"celebrities\",\n      \"mappingFunction\": null\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "RunIndexer-TextDocuments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/textdocuments/run?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"textdocuments",
+						"run"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "RunIndexer-Celebreties",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/celebreties/run?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"celebreties",
+						"run"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "RunIndexer-HotelReviews",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/hotelreviews/run?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"hotelreviews",
+						"run"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "RunIndexer-OCR",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/scandocuments/run?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"scandocuments",
+						"run"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "GetIndexerStatus-TextDocuments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/textdocuments/status?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"textdocuments",
+						"status"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "GetIndexerStatus-Celebreties",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/celebreties/status?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"celebreties",
+						"status"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "GetIndexerStatus-HotelReviews",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/hotelreviews/status?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"hotelreviews",
+						"status"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "GetIndexerStatus-OCR",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{AdminApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexers/scandocuments/status?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"scandocuments",
+						"status"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Adds a document to the Hotel Index"
+			},
+			"response": []
+		},
+		{
+			"name": "QueryIndex-TextDocuments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{QueryApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"count\": true,\r\n    \"search\": \"*\",\r\n    \"select\": \"*\",\r\n    \"skip\": 0,\r\n    \"top\": 25\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/textdocuments/docs/search?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"textdocuments",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Performs a search query using a POST request. Use this when you have more complex queries for simplicity."
+			},
+			"response": []
+		},
+		{
+			"name": "QueryIndex-Celebreties",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{QueryApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"count\": true,\r\n    \"search\": \"*\",\r\n    \"select\": \"*\",\r\n    \"skip\": 0,\r\n    \"top\": 25\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/celebreties/docs/search?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"celebreties",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Performs a search query using a POST request. Use this when you have more complex queries for simplicity."
+			},
+			"response": []
+		},
+		{
+			"name": "QueryIndex-HotelReviews",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{QueryApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"count\": true,\r\n    \"search\": \"*\",\r\n    \"select\": \"*\",\r\n    \"skip\": 0,\r\n    \"top\": 25\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/hotelreviews/docs/search?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"hotelreviews",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Performs a search query using a POST request. Use this when you have more complex queries for simplicity."
+			},
+			"response": []
+		},
+		{
+			"name": "QueryIndex-ScanDocsOCR",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "{{QueryApiKey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"count\": true,\r\n    \"search\": \"*\",\r\n    \"select\": \"*\",\r\n    \"skip\": 0,\r\n    \"top\": 25\r\n}"
+				},
+				"url": {
+					"raw": "https://{{serviceName}}.search.windows.net/indexes/scandocuments/docs/search?api-version={{apiVersion}}",
+					"protocol": "https",
+					"host": [
+						"{{serviceName}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"scandocuments",
+						"docs",
+						"search"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{apiVersion}}"
+						}
+					]
+				},
+				"description": "Performs a search query using a POST request. Use this when you have more complex queries for simplicity."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c328785c-a17f-460c-976d-a326ffdba6bc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cbc49186-bc54-4965-96f5-90030ffc3da2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1ebe74a3-2269-401b-b9a2-89a48e6f4c48",
+			"key": "QueryApiKey",
+			"value": "AB07985B9379C0DA12FABCDEFG",
+			"type": "string"
+		},
+		{
+			"id": "1305c40c-a97f-4e49-99c5-191b7f6c3815",
+			"key": "AdminApiKey",
+			"value": "AB07985B9379C0DA12FABCDEFG",
+			"type": "string"
+		},
+		{
+			"id": "1ae4264b-5cb4-48bc-919c-a35882c66271",
+			"key": "serviceName",
+			"value": "p20samples",
+			"type": "string"
+		},
+		{
+			"id": "1683a6d5-f7c0-4222-99cc-b86959e488b0",
+			"key": "apiVersion",
+			"value": "2017-11-11-Preview",
+			"type": "string"
+		},
+		{
+			"id": "001a6a48-47ba-498f-946f-be8c35b4b1e7",
+			"key": "indexName",
+			"value": "p20samples",
+			"type": "string"
+		}
+	]
+}
